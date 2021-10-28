@@ -1,0 +1,211 @@
+<zk>
+	<window id="HalamanKeranjangZul" apply="controller.MainController">
+	<style>
+		.breeze .complex-layout, .breeze .complex-layout .z-south, .breeze .complex-layout .z-west {
+		background: #F7F7F7;
+		}
+		.z-borderlayout {  background: #FFFFFF }
+		.complex-layout .z-north { background: #008BB6; }
+		.complex-layout .z-north > div { padding: 5px; }
+		img.complex-layout-header-img { padding: 0 10px; }
+		img.list-image-img { width:50px; height:50px; }
+		.complex-layout-header-label {
+		position: relative; top: -10px;
+		padding-left: 40px; font-size: 24px;
+		color: Black; font-weight: bold;
+		}
+		.complex-layout-header-label1 {
+		position: relative; top: -10px;
+		padding-left: 40px; font-size: 35px;
+		color: Black; font-weight: bold;
+		}
+		.inner-border, .inner-border .z-north, .inner-border .z-west,
+		.inner-border .z-south, .inner-border .z-east { background: #FFFFFF; }
+		.dl-link { text-decoration: none; cursor: pointer; }
+		icon.icon-size{ width: 10px; height: 10px;}
+	</style>
+	<div>
+		<borderlayout  height="1000px">
+			<north size="70px" border="10px">
+				<div>
+					<div style="float:left">
+						<image src="/images/Logo.png" height="50px" width="50px"/>
+						<label value="Shopping Cart Project" sclass="complex-layout-header-label1"/>
+					</div>
+					<div style="float:right">
+						<textbox width="520px" value="@bind(vm.search)" />
+						<button iconSclass="z-icon-search"
+								onClick="@command('search')" />
+						<button iconSclass="z-icon-shopping-cart"/>
+						<button iconSclass="z-icon-bell"/>
+						<button iconSclass="z-icon-envelope"/>
+						<button iconSclass="z-icon-user"/>
+					</div>
+				</div>
+			</north>
+			<!-- Content -->
+			<center>
+				<borderlayout sclass="inner-border">
+					<north border="0" height="4%" margins="2,3,2,2">
+						<label value="Keranjang" sclass="complex-layout-header-label"/>
+					</north>
+					<center border="0" margins="0,3,3,3">
+						<panel  border="normal"
+							   height="100%">
+							<panelchildren>
+								<grid style="border:0;" >
+									<custom-attributes org.zkoss.zul.nativebar="true"/>
+									<rows>
+										<row>
+											<div>
+												<checkbox id="checkAll"/>
+												<label value="Pilih Semua"/>
+												<separator
+														orient="horizontal" bar="true"/>
+											</div>
+										</row>
+										<row>
+											<div>
+												<checkbox id="checkBox1"/>
+												<label value="Miniso Indonesia"/>
+												<separator
+														orient="horizontal" spacing="5px" />
+												<div style="padding : 10px">
+												<div style="padding : 10px">
+													<grid>
+														<columns>
+															<column hflex="min"/>
+															<column hflex="min"/>
+															<column/>
+														</columns>
+
+													<rows>
+														<row>
+															<checkbox id="checkBox2"/>
+															<image src="/images/earphone.jpg" sclass="list-image-img"/>
+															<label value="MINISO Earphone Musik Stereo Kabel Headphone In Ear Mic Headset Earbud - Silver" style="font-size : 14px" />
+														</row>
+														<row>
+															<label/>
+															<label value="Rp47.000,00" style="font-size : 12px"/>
+															<div>
+																<button id="btnMin1" iconSclass="z-icon-minus"  width="50px" height="40px"/>
+																<intbox  id="ib1" width="50px" style="text-align:right;" readonly="true"/>
+																<button id="btnAdd1" iconSclass="z-icon-plus" width="50px" height="40px"/>
+															</div>
+														</row>
+
+														<row>
+															<checkbox id="checkBox3"/>
+															<image src="/images/perfume.jpg" sclass="list-image-img"/>
+															<label value="MINISO Parfum Perfume Harmony 30ml - Pure" style="font-size : 14px" />
+														</row>
+														<row>
+															<label/>
+															<label value="Rp60.000,00" style="font-size : 12px"/>
+															<div>
+																<button id="btnMin2" iconSclass="z-icon-minus"  width="50px" height="40px"/>
+																<intbox id="ib2" width="50px" style="text-align:right;" readonly="true"></intbox>
+																<button id="btnAdd2" iconSclass="z-icon-plus" width="50px" height="40px"/>
+															</div>
+														</row>
+													</rows>
+
+													</grid>
+												</div>
+													</div>
+
+											</div>
+										</row>
+<!--										Next Item Cart-->
+										<row>
+											<div>
+												<separator
+														orient="horizontal" spacing="5px" />
+												<div style="padding : 10px">
+													<div style="padding : 10px">
+														<grid>
+															<columns>
+																<column hflex="min"/>
+																<column hflex="min"/>
+																<column/>
+															</columns>
+															<rows/>
+														</grid>
+													</div>
+												</div>
+											</div>
+										</row>
+<!--										till here-->
+									</rows>
+								</grid>
+							</panelchildren>
+						</panel>
+					</center>
+					<east border="0" width="50%" margins="0,0,3,3">
+						<panel title="Ringkasan Belanja" border="normal"
+							   height="100%" hflex="1">
+							<panelchildren>
+								<grid style="border:0;" >
+									<custom-attributes org.zkoss.zul.nativebar="true"/>
+									<rows>
+										<row>
+											<div>
+												<grid>
+													<columns>
+														<column/>
+														<column width="80px"/>
+														<column/>
+													</columns>
+													<rows>
+														<row hflex="min">
+															<label value="Total Harga"/>
+															<label/>
+															<textbox id="ibTotalAll" style="text-align:right;" hflex="200px" readonly="true"/>
+														</row>
+
+														<row hflex="min">
+															<label value="Total Harga"/>
+															<label id="lb1"/>
+															<textbox id="ibTotalPerBarang" style="text-align:right;" hflex="200px" readonly="true"/>
+														</row>
+													</rows>
+												</grid>
+												<grid>
+													<columns>
+														<column/>
+														<column/>
+														<column/>
+													</columns>
+													<rows>
+
+													</rows>
+												</grid>
+											</div>
+										</row>
+									</rows>
+								</grid>
+								<button width="100%">Checkout</button>
+							</panelchildren>
+						</panel>
+					</east>
+				</borderlayout>
+			</center>
+			<south size="40px" border="0"
+				   style="background: none repeat scroll 0 0 ;">
+				<toolbar mold="panel" align="center">
+					<toolbarbutton label="Sign in" />
+					<toolbarbutton label="Home" />
+					<toolbarbutton label="Sitemap" />
+					<toolbarbutton label="Terms" />
+					<toolbarbutton label="Report Abuse" />
+					<toolbarbutton label="Print" />
+					<separator orient="vertical" bar="true" />
+					Powered by ZK ${desktop.webApp.version} ZK
+					Borderlayout
+				</toolbar>
+			</south>
+		</borderlayout>
+	</div>
+	</window>
+</zk>
